@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rutuja Lambat</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- FONT AWESOME (FOR ICONS) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+</head>
+<body>
+
+<!-- 🔹 NAVBAR -->
+<header>
+    <div class="logo">Rutuja Lambat</div>
+    <nav>
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#skills">SKILLS</a>
+        <a href="#projects">PROJECTS</a>
+        <a href="#contact">CONTACT</a>
+    </nav>
+</header>
+
+<!-- 🔹 HOME -->
+<section id="home" class="section home">
+    <div class="home-container">
+
+        <div class="home-text">
+            <h1>I’m a Web Developer</h1>
+            <p>
+                Motivated fresher seeking an entry-level role to apply technical skills,
+                gain hands-on experience, and contribute to organizational growth while
+                continuously learning and developing professionally.
+            </p>
+           <a class="btn" href="http://localhost:8081/resume" target="_blank">
+  View Resume
+</a>
+
+
+        </div>
+
+        <div class="home-image">
+    <div class="profile-ring">
+        <img
+            src="photo.jpeg"
+            alt="Profile Photo"
+            class="profile-photo"
+            onerror="this.src='https://via.placeholder.com/300x300?text=Profile+Photo';"
+        >
+    </div>
+</div>
+
+
+    </div>
+</section>
+
+<!-- 🔹 ABOUT -->
+<section id="about" class="section">
+    <h2>ABOUT</h2>
+
+    <div class="about-text">
+
+        <p class="about-intro">
+            <span class="drop-cap">H</span>ey there! I’m
+            <span class="highlight name">Rutuja Lambat</span>, a
+            <span class="highlight">Computer Science undergraduate</span> passionate about
+            building <span class="highlight">user-friendly</span> and
+            <span class="highlight">visually appealing</span> web applications.
+        </p>
+
+        <p>
+            I specialize in <span class="highlight">HTML</span>,
+            <span class="highlight">CSS</span>,
+            <span class="highlight">JavaScript</span>, and
+            <span class="highlight">Java</span>, with hands-on experience in
+            <span class="highlight">MySQL</span> and version control using
+            <span class="highlight">Git & GitHub</span>.
+        </p>
+
+        <p>
+            I enjoy <span class="highlight">solving problems</span>,
+            <span class="highlight">learning new technologies</span>, and transforming ideas
+            into <span class="highlight">efficient digital solutions</span>.
+            I’m always eager to <span class="highlight">learn</span>,
+            <span class="highlight">grow</span>, and
+            <span class="highlight">improve myself</span>, and I look forward to exploring
+            <span class="highlight">new opportunities</span>.
+        </p>
+
+    </div>
+</section>
+
+<!-- 🔹 SKILLS -->
+<section id="skills" class="section dark">
+    <h2>SKILLS</h2>
+
+    <div class="skills-grid">
+
+        <div class="skill-card java">
+            <i class="fab fa-java"></i>
+            <p>Java</p>
+        </div>
+
+        <div class="skill-card oop">
+            <i class="fas fa-cubes"></i>
+            <p>OOP</p>
+        </div>
+
+        <div class="skill-card mysql">
+            <i class="fas fa-database"></i>
+            <p>MySQL</p>
+        </div>
+
+        <div class="skill-card dbms">
+            <i class="fas fa-server"></i>
+            <p>DBMS</p>
+        </div>
+
+        <div class="skill-card dsa">
+            <i class="fas fa-project-diagram"></i>
+            <p>DSA</p>
+        </div>
+
+        <div class="skill-card html">
+            <i class="fab fa-html5"></i>
+            <p>HTML</p>
+        </div>
+
+        <div class="skill-card css">
+            <i class="fab fa-css3-alt"></i>
+            <p>CSS</p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 🔹 PROJECTS -->
+<section id="projects" class="section">
+    <h2>PROJECTS</h2>
+    <div id="projectList" class="projects-grid"></div>
+</section>
+
+<!-- 🔹 CONTACT -->
+<section id="contact" class="section dark">
+    <h2>CONTACT</h2>
+
+    <div class="contact-container">
+
+        <!-- CONTACT FORM -->
+        <form id="contactForm" class="contact-form">
+            <input type="email" id="emailInput" placeholder="Email *" required>
+            <textarea id="messageInput" placeholder="Your Message *" required></textarea>
+            <button type="submit">Send</button>
+            <p id="formError"></p>
+        </form>
+
+        <!-- SOCIAL CARD -->
+        <div class="social-card">
+            <h3>👋 You can follow me on Socials</h3>
+            <p class="social-email">rutujalambat2004@gmail.com</p>
+
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/yourprofile" target="_blank">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+
+                <a href="https://github.com/Rutujaajaylamabt" target="_blank">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+
+                <a href="https://x.com/handle" target="_blank">
+                    <i class="fab fa-x-twitter"></i> X
+                </a>
+
+                <a href="https://instagram.com/rutujalambat_18" target="_blank">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    ©2025-26
+    Presented by - Rutuja Lambat
+</footer>
+
+<!-- 🔹 JAVASCRIPT -->
+<script>
+const PROJECT_API = "https://portfolio-backend-4-ol93.onrender.com/projects";
+const CONTACT_API = "https://portfolio-backend-4-ol93.onrender.com/contact";
+
+/* =====================
+   LOAD PROJECTS
+===================== */
+function loadProjects() {
+    fetch(PROJECT_API)
+        .then(res => res.json())
+        .then(data => {
+            const container = document.getElementById("projectList");
+            container.innerHTML = "";
+
+            data.forEach(p => {
+                const card = document.createElement("div");
+                card.className = "project-card";
+                card.innerHTML = `
+                    <h3>${p.title}</h3>
+                    <p>${p.description}</p>
+                    <p><b>Tech:</b> ${p.techStack}</p>
+                    <a href="${p.githubUrl}" target="_blank">GitHub</a>
+                `;
+                container.appendChild(card);
+            });
+        })
+        .catch(err => console.error(err));
+}
+loadProjects();
+
+/* =====================
+   CONTACT FORM
+===================== */
+document.getElementById("contactForm").addEventListener("submit", e => {
+    e.preventDefault();
+
+    const email = document.getElementById("emailInput").value;
+    const message = document.getElementById("messageInput").value;
+    const error = document.getElementById("formError");
+
+    if (!email.includes("@") || message.length < 5) {
+        error.style.color = "red";
+        error.innerText = "Please enter valid details.";
+        return;
+    }
+
+    fetch(CONTACT_API, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, message })
+    })
+    .then(() => {
+        error.style.color = "lightgreen";
+        error.innerText = "Message sent successfully ✅";
+        document.getElementById("contactForm").reset();
+    })
+    .catch(() => {
+        error.style.color = "red";
+        error.innerText = "Failed to send message ❌";
+    });
+});
+</script>
+
+</body>
+</html>
